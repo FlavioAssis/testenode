@@ -1,0 +1,10 @@
+var MongoClient = require('mongodb').MongoClient;
+var id =  require('mongodb').ObjectID;
+
+MongoClient.connect('mongodb://localhost/testebanco', function(erro, db){
+	if(erro) throw erro;
+	db.collection('dados').find({}, function(erro, contato) {
+		if(erro) throw erro;
+		console.log(contato);
+	});
+});
